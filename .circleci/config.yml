@@ -5,6 +5,7 @@ jobs:
   build-and-test:
     executor:
       name: node/default
+      size: small
     steps:
       - checkout
       - node/with-cache:
