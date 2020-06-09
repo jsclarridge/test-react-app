@@ -24,7 +24,7 @@ jobs:
           paths:
             - ~/.npm
             - ~/.cache
-      - run: $(npm bin)/cypress run
+      - run: npm run cy:run
 
 workflows:
   build:
