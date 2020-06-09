@@ -1,6 +1,8 @@
 version: 2.1
+
 orbs:
   node: circleci/node@1.1.6
+
 jobs:
   build-and-test:
     executor:
@@ -12,7 +14,21 @@ jobs:
           steps:
             - run: npm install
             - run: npm test
+
+  cypress-test:
+    executor:
+      name: node/default
+    resource_class: small
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+      - save_cache:
+          key:
+            - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+
 workflows:
     build-and-test:
       jobs:
-        - build-and-test
+        - cypress-test
