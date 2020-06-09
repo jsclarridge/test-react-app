@@ -17,7 +17,7 @@ jobs:
 
   cypress-test:
     executor:
-      name: cypress/base-10
+      name: cypress/base:10
     resource_class: small
     steps:
       - checkout
