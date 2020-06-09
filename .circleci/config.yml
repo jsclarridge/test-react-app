@@ -16,8 +16,8 @@ jobs:
             - run: npm test
 
   cypress-test:
-    executor:
-      name: cypress/base:10
+    docker:
+      - image: cypress/base:10
     resource_class: small
     steps:
       - checkout
