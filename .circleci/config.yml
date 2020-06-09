@@ -24,6 +24,17 @@ jobs:
       - restore_cache:
           keys:
             - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+
+      - run:
+          name: Install packages
+          command: npm install
+      - run:
+          name: Start server
+          command: npm run start
+          background: true
+      - run:
+          name: Run cypress tests
+          command: npm run cy:run
       - save_cache:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
