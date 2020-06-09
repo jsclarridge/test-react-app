@@ -2,7 +2,6 @@ version: 2.1
 
 orbs:
   node: circleci/node@1.1.6
-  cypress: cypress-io/cypress@1
 
 jobs:
   build-and-test:
@@ -42,18 +41,6 @@ jobs:
             - ~/.cache
 
 workflows:
-  # build-and-test:
-  #   jobs:
-  #      - cypress-test
-    build:
+    build-and-test:
       jobs:
-        - cypress/install:
-            build: 'npm run build'  # run a custom app build step
-        - cypress/run:
-            requires:
-              - cypress/install
-                # record: true        # record results on Cypress Dashboard
-                # parallel: true      # split all specs across machines
-                # parallelism: 4      # use 4 CircleCI machines to finish quickly
-                # group: 'all tests'  # name this group "all tests" on the dashboard
-            start: 'npm start'  # start server before running tests
+        - cypress-test
