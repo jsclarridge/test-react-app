@@ -1,0 +1,10 @@
+FROM cypress/base:10
+
+COPY package.json /package.json
+RUN yarn install --dev --silent
+
+COPY . /cypress
+COPY cypress.json /cypress.json
+
+ENTRYPOINT ["/node_modules/.bin/cypress"]
+CMD ["run"]

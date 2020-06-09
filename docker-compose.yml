@@ -1,0 +1,15 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+      # volumes:
+      #   - .:/app
+    ports:
+      - 3000:3000
+    entrypoint: ["serve", "-p", "3000"]
+  cypress:
+    build:
+      context: cypress
+      dockerfile: Dockerfile.cypress

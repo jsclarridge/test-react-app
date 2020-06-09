@@ -1,0 +1,9 @@
+FROM node:10 AS builder
+WORKDIR /app
+COPY . .
+RUN yarn run build
+
+FROM node:10
+RUN yarn global add serve
+WORKDIR /app
+COPY --from=builder /app/build .
