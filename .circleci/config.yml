@@ -8,10 +8,13 @@ jobs:
     resource_class: small
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+        # - node/with-cache:
+        #     steps:
+        #       - run: npm install
+        #       - run: npm test
+      - run:
+          name: Run cypress tests
+          command: ./scripts/run-cypress-tests
 workflows:
     build-and-test:
       jobs:
