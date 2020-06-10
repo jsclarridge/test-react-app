@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-set -eux -o pipefail
+set -eu -o pipefail
 
 docker-compose build
-docker-compose run cypress
+
+(set -x ; docker-compose run cypress)
