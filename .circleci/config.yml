@@ -13,9 +13,13 @@ jobs:
         #     steps:
         #       - run: npm install
         #       - run: npm test
-      - run:
-          name: Run cypress tests
-          command: ./scripts/run-cypress-tests
+        # - run:
+        #     name: Run cypress tests
+        #     command: ./scripts/run-cypress-tests
+      - run: docker-compose build
+      - run: docker-compose up --abort-on-container-exit --exit-code-from cypress
+      # confirms Cypress ran correctly by looking at the output file
+      - run: cat cypress/cypress/results/output.xml
 workflows:
     build-and-test:
       jobs:
