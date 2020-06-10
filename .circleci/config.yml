@@ -19,7 +19,7 @@ jobs:
       - run: docker-compose build
       - run: docker-compose up --abort-on-container-exit --exit-code-from cypress
       # confirms Cypress ran correctly by looking at the output file
-      - run: cat cypress/cypress/results/output.xml
+      - run: cat cypress/results/output.xml
 workflows:
     build-and-test:
       jobs:
