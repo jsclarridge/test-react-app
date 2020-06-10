@@ -13,3 +13,5 @@ services:
     build:
       context: cypress
       dockerfile: Dockerfile.cypress
+    depends_on:
+      - frontend

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eux -o pipefail
+
+docker-compose build
+docker-compose run cypress
