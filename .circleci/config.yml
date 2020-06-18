@@ -32,7 +32,7 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/run # "run" job comes from "cypress" orb
+      - cypress/run: # "run" job comes from "cypress" orb
           yarn: true
           start: yarn start
           wait-on: 'http://localhost:3000'
