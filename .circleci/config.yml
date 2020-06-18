@@ -32,7 +32,6 @@ orbs:
 workflows:
   build:
     jobs:
-      - cypress/install
       - cypress/run: # "run" job comes from "cypress" orb
           yarn: true
           start: yarn start
