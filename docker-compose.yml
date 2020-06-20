@@ -6,6 +6,8 @@ services:
       dockerfile: Dockerfile.frontend
       # volumes:
       #   - .:/app
+    environment:
+      - CI=true
     ports:
       - 3000:3000
     entrypoint: ["yarn", "start"]
