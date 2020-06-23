@@ -15,5 +15,7 @@ services:
     build:
       context: cypress
       dockerfile: Dockerfile.cypress
+    environment:
+      - CYPRESS_BASE_URL=http://frontend:3000
     depends_on:
       - frontend
