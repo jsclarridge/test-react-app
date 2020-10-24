@@ -1,11 +1,20 @@
 version: 2.1
+
 orbs:
   node: circleci/node@4.1.0
+
+executors:
+  my-executor:
+    docker:
+      - image: circleci/node:12.19.0
+        auth:
+          username: $DOCKER_USERNAME
+          password: $DOCKER_PASSWORD
+    resource_class: small
+
 jobs:
   test:
-    executor:
-      name: node/default
-    resource_class: small
+    executor: my-executor
     steps:
       - checkout
       - node/install-packages:
@@ -13,6 +22,7 @@ jobs:
       - run:
           name: Run yarn tests
           command: yarn run test
+
 workflows:
     test_my_app:
       jobs:
