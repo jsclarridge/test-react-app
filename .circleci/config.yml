@@ -1,18 +1,33 @@
 version: 2.1
+
 orbs:
-  node: circleci/node@1.1.6
-jobs:
-  build-and-test:
-    executor:
-      name: node/default
+  node: circleci/node@4.1.0
+
+executors:
+  my-executor:
+    docker:
+      - image: cimg/node:12.19.0
+        auth:
+          username: $DOCKER_USERNAME
+          password: $DOCKER_PASSWORD
     resource_class: small
+
+jobs:
+  test:
+    executor: my-executor
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - node/install-packages:
+          pkg-manager: yarn
+          include-branch-in-cache-key: false
+      - run:
+          name: Run yarn build
+          command: yarn run build
+      - run:
+          name: Run yarn tests
+          command: yarn run test
+
 workflows:
-    build-and-test:
+    test_my_app:
       jobs:
-        - build-and-test
+        - test
