@@ -21,6 +21,9 @@ jobs:
           pkg-manager: yarn
           include-branch-in-cache-key: false
       - run:
+          name: Run yarn build
+          command: yarn run build
+      - run:
           name: Run yarn tests
           command: yarn run test
 
