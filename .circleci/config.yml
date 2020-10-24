@@ -6,7 +6,7 @@ orbs:
 executors:
   my-executor:
     docker:
-      - image: circleci/node:12.19.0
+      - image: cimg/node:12.19.0
         auth:
           username: $DOCKER_USERNAME
           password: $DOCKER_PASSWORD
