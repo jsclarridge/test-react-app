@@ -24,7 +24,7 @@ jobs:
     - run: yarn run test
 
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/pull/placeholder_pr_number/merge' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/pull/195/merge' }}
     needs: build
     runs-on: ubuntu-latest
     environment: dev
