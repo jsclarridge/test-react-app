@@ -23,14 +23,11 @@ jobs:
         path: build
     - run: yarn run test
 
-  hold_dev:
-    if: ${{ github.ref != 'refs/heads/main' }}
-    needs: build
-    environment: dev
-
   deploy:
-    needs: hold_dev
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/pull/placeholder_pr_number/merge' }}
+    needs: build
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - uses: actions/download-artifact@v2
         with:
