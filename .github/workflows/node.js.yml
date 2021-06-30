@@ -24,7 +24,7 @@ jobs:
     - run: yarn run test
 
   deploy:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev-deploy' }}
     needs: build
     runs-on: ubuntu-latest
     environment: dev
