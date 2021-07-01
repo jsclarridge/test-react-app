@@ -26,6 +26,7 @@ jobs:
   hold_dev:
     if: ${{ github.ref != 'refs/heads/main' }}
     needs: build
+    runs-on: ubuntu-latest
     environment: hold_dev
     steps:
     - run: echo "hold for approval of dev deployment"
