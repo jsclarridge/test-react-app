@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[![build](https://github.com/jsclarridge/test-react-app/actions/workflows/build.yml/badge.svg)](https://github.com/jsclarridge/test-react-app/actions/workflows/build.yml)
+
 ## Available Scripts
 
 In the project directory, you can run:
