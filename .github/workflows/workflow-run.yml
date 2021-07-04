@@ -6,6 +6,6 @@ on:
 jobs:
   on-success:
     runs-on: ubuntu-latest
-      if: ${{ github.event.workflow_run.conclusion == 'success' }}
-      steps:
-        - run: echo "Success"
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - run: echo "Success"
