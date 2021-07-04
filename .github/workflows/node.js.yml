@@ -24,16 +24,8 @@ jobs:
         retention-days: 1
     - run: yarn run test
 
-  hold_dev:
-    if: ${{ github.ref != 'refs/heads/main' }}
-    needs: build
-    runs-on: ubuntu-latest
-    environment: hold_dev
-    steps:
-    - run: echo "hold for approval of dev deployment"
-
   deploy:
-    needs: [ build, hold_dev ]
+    needs: build
     runs-on: ubuntu-latest
     environment: dev
     steps:
