@@ -48,3 +48,11 @@ jobs:
         env:
           S3_BUCKET: ${{ secrets.S3_BUCKET }}
         run: aws s3 sync --no-progress --delete build/ s3://"$S3_BUCKET"/
+
+  test:
+    needs: deploy
+    runs-on: ubuntu-latest
+    environment: test
+    steps:
+      - run: echo "Running a test"
+
