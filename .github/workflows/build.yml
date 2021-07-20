@@ -28,6 +28,19 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '12'
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - name: Configure yarn cache
+      uses: actions/cache@c64c572235d810460d0d6876e9c705ad5002b353 # v2.1.6
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: |
+          ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          ./node_modules
+        key: v1-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          v1-yarn-
     - run: yarn install
     - run: yarn run build
     - uses: actions/upload-artifact@v2
