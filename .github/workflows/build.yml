@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 env:
-  TAG: ${{ github.event.pull_request.head.sha }}
+  TAG: ${{ github.event.pull_request.head.sha || github.sha }}
 
 jobs:
   build:
