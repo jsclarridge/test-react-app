@@ -51,7 +51,7 @@ jobs:
     - run: yarn run test
 
   deploy:
-    if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' || contains(github.event.pull_request.labels.*.name, 'deploy_dev') }}
     needs: build
     runs-on: ubuntu-latest
     environment: dev
