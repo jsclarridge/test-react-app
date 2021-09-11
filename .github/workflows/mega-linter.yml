@@ -4,7 +4,7 @@
 name: Mega-Linter
 
 on:
-  push:
+  push: [master, main]
   pull_request:
     branches: [master, main]
 
