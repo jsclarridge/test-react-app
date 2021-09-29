@@ -19,6 +19,12 @@ jobs:
         tags: localbuild/testimage:latest
         push: false
         load: true
+    - name: Run Anchore directory scan
+      uses: anchore/scan-action@v3
+      with:
+        path: "."
+        acs-report-enable: false
+        fail-build: false
     - name: Run Anchore image scan
       id: scan
       uses: anchore/scan-action@v3
