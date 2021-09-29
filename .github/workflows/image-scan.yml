@@ -19,6 +19,13 @@ jobs:
         tags: localbuild/testimage:latest
         push: false
         load: true
+    - name: Run Trivy image scan
+      uses: aquasecurity/trivy-action@0.0.20
+      with:
+        image-ref: "localbuild/testimage:latest"
+        format: "table"
+        exit-code: "0"
+          # ignore-unfixed: false
     - name: Run Anchore directory scan
       uses: anchore/scan-action@v3
       with:
