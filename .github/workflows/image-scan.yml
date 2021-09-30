@@ -20,9 +20,13 @@ jobs:
         push: false
         load: true
     - name: Run Clair image scan
-      uses: santander-group/clair-scan-action@eed36cec0a745465e2a58a47409ce0ea3a7cb3a5
+      uses: santander-group/clair-scan-action@main
       with:
-        image: "localbuild/testimage:latest"
+        image: localbuild/testimage:latest
+        local: no
+        report_format: json
+        report_path: clair-report.json
+        updater: debian
     - name: Run Trivy image scan
       uses: aquasecurity/trivy-action@0.0.20
       with:
