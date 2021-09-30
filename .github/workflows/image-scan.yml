@@ -29,7 +29,7 @@ jobs:
         updater: debian
     - name: View Clair image scan output
       run: |
-        jq clair-report.json
+        cat clair-report.json | jq .
     - name: Run Trivy image scan
       uses: aquasecurity/trivy-action@0.0.20
       with:
