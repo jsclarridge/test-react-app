@@ -19,6 +19,10 @@ jobs:
         tags: localbuild/testimage:latest
         push: false
         load: true
+    - name: Run Clair image scan
+      uses: santander-group/clair-scan-action@eed36cec0a745465e2a58a47409ce0ea3a7cb3a5
+      with:
+        image: "localbuild/testimage:latest"
     - name: Run Trivy image scan
       uses: aquasecurity/trivy-action@0.0.20
       with:
