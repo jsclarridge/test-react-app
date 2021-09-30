@@ -25,7 +25,7 @@ jobs:
         image-ref: "localbuild/testimage:latest"
         format: "table"
         exit-code: "0"
-        ignore-unfixed: false
+        ignore-unfixed: true
         vuln-type: os
     - name: Run Anchore directory scan
       uses: anchore/scan-action@v3
