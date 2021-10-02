@@ -16,7 +16,4 @@ FROM gcr.io/distroless/nodejs:14
 
 WORKDIR /app
 
-COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/build .
-
-CMD ["./node_modules/serve/bin/serve.js", "-s", "-l", "3000"]
