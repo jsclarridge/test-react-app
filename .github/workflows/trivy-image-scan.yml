@@ -1,6 +1,14 @@
 name: Trivy image scan
 
 on:
+  push:
+    paths:
+      - Dockerfile
+    branches:
+      - main
+  pull_request:
+    paths:
+      - Dockerfile
   schedule:
     - cron:  '0 * * * *'
 
