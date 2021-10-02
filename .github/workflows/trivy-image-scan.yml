@@ -1,8 +1,8 @@
 name: Trivy image scan
 
 on:
-schedule:
-  - cron:  '0 1 * * *'
+  schedule:
+    - cron:  '0 1 * * *'
 
 jobs:
   build:
