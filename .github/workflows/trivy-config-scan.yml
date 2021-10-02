@@ -15,10 +15,12 @@ jobs:
       uses: aquasecurity/trivy-action@0.0.20
       with:
         scan-type: 'config'
-        format: 'table'
         ignore-unfixed: false
         hide-progress: false
         exit-code: '0'
+        format: 'template'
+        template: '@/contrib/sarif.tpl'
+        output: 'trivy-results.sarif'
     - name: Upload Trivy scan results to GitHub Security tab
       uses: github/codeql-action/upload-sarif@v1
       with:
