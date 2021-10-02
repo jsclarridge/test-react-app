@@ -1,4 +1,4 @@
-FROM node:14-alpine AS build
+FROM node:14 AS build
 
 WORKDIR /app
 
@@ -12,12 +12,11 @@ COPY src ./src
 
 RUN yarn run build
 
-FROM node:14
-
-RUN yarn global add serve
+FROM gcr.io/distroless/nodejs:14
 
 WORKDIR /app
 
+COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/build .
 
-CMD ["serve", "-s", "-l", "3000"]
+CMD ["./node_modules/serve/bin/serve.js", "-s", "-l", "3000"]
