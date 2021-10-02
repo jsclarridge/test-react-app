@@ -1,0 +1,25 @@
+name: Trivy filesystem scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Trivy vulnerability scanner in repo mode
+      uses: aquasecurity/trivy-action@0.0.20
+      with:
+        scan-type: 'fs'
+        ignore-unfixed: false
+        format: 'table'
+          #         template: '@/contrib/sarif.tpl'
+          #         output: 'trivy-results.sarif'
+          #     - name: Upload Trivy scan results to GitHub Security tab
+          #       uses: github/codeql-action/upload-sarif@v1
+          #       with:
+          #         sarif_file: 'trivy-results.sarif'
