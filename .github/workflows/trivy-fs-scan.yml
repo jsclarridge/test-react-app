@@ -15,6 +15,5 @@ jobs:
       uses: aquasecurity/trivy-action@0.0.20
       with:
         scan-type: 'fs'
-        vuln-type: 'os'
         ignore-unfixed: true
         format: 'table'
