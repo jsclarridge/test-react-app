@@ -17,5 +17,5 @@ jobs:
         scan-type: 'config'
         ignore-unfixed: false
         hide-progress: false
-        exit-code: '1'
+        exit-code: '0'
         format: 'table'
