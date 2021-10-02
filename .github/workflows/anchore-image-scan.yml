@@ -1,9 +1,8 @@
 name: Anchore image scan
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
+  schedule:
+    - cron:  '0 * * * *'
 
 jobs:
   anchore-image-scan:
