@@ -17,7 +17,7 @@ jobs:
         scan-type: 'config'
         ignore-unfixed: false
         hide-progress: false
-        exit-code: '0'
+        exit-code: '1'
         format: 'template'
         template: '@/contrib/sarif.tpl'
         output: 'trivy-results.sarif'
