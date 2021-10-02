@@ -23,6 +23,7 @@ jobs:
       uses: aquasecurity/trivy-action@0.0.20
       with:
         image-ref: "localbuild/testimage:latest"
+        ignore-unfixed: true
         exit-code: "0"
         format: 'template'
         template: '@/contrib/sarif.tpl'
