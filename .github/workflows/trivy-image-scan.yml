@@ -28,6 +28,7 @@ jobs:
       with:
         image-ref: "localbuild/testimage:latest"
         ignore-unfixed: true
+        vuln-type: 'os'
         format: 'template'
         template: '@/contrib/sarif.tpl'
         output: 'trivy-results.sarif'
