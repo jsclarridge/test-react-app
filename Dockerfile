@@ -12,7 +12,7 @@ COPY src ./src
 
 RUN yarn run build
 
-FROM gcr.io/distroless/nodejs:14
+FROM gcr.io/distroless/nodejs:18
 
 WORKDIR /app
 
